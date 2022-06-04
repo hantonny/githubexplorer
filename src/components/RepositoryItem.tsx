@@ -8,13 +8,15 @@ interface RepositoryItemProps {
 
 export function RepositoryItem(props: RepositoryItemProps) {
     return (
-        <li>
+        <div>
+        <li className="item">
             <strong>{props.repository.name}</strong>
             <p>{props.repository.description}</p>
 
             <a href={props.repository.html_url} target="_blank">
                 Acessar repositórios
             </a>
-        </li>
+        </li >
+        </div>
     )
 }

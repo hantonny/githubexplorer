@@ -29,22 +29,28 @@ module.exports = {
     ].filter(Boolean),
     module: {
         rules: [{
-            test: /\.(j|t)sx$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    plugins: [
-                        isDevelopment && require.resolve('react-refresh/babel')
-                    ].filter(Boolean)
+                test: /\.(j|t)sx$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: [
+                            isDevelopment && require.resolve('react-refresh/babel')
+                        ].filter(Boolean)
+                    }
                 }
-            }
-        },
-        {
-            test: /\.scss$/,
-            exclude: /node_modules/,
-            use: ['style-loader', 'css-loader', 'sass-loader']
-        }
-    ]
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|jpe?g|svg)$/i,
+                use: [{
+                    loader: 'file-loader',
+                }, ],
+            },
+        ]
     }
 }

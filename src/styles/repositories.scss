@@ -1,11 +1,40 @@
 section.repository-list {
     margin: 2.5rem 8rem;
-    text-align: center;
+
     h1 {
-        margin-top: 4rem;
+        margin-top: 0.5rem;
         margin-bottom: 1rem;
+        font-weight: bold;
     }
-    
+
+    input {
+        width: 700px;
+        height: 72px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 23px;
+        color: #A8A8B3;
+        padding-left: 2rem;
+        border: none;
+    }
+
+    button.click {
+        cursor: pointer;
+        border-radius: 0px 5px 5px 0px;
+        width: 210px;
+        height: 72px;
+        border: none;
+        background: #04D361;
+        color: #FFFFFF;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+    }
+
     a {
         display: inline-block;
         margin-top: 1rem;
@@ -15,9 +44,10 @@ section.repository-list {
 
     ul {
         list-style: none;
-        margin-top: 10rem;
+        margin-top: 5rem;
+
         li {
-            
+
             &+li {
                 margin-top: 1.25rem;
             }
@@ -36,4 +66,14 @@ section.repository-list {
             }
         }
     }
+}
+
+li.item {
+    margin-bottom: 1rem;
+    text-align: center;
+    background-color: #FFFFFF;
+    width: 20rem;
+    height: 9.375rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
 }
