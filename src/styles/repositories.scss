@@ -7,6 +7,16 @@ section.repository-list {
         font-weight: bold;
     }
 
+    h1.tituloprincipal {
+        margin-top: 1.5rem;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+        font-size: 48px;
+    }
+
     input {
         width: 700px;
         height: 72px;
@@ -18,6 +28,7 @@ section.repository-list {
         color: #A8A8B3;
         padding-left: 2rem;
         border: none;
+        margin-top: 0.5rem;
     }
 
     button.click {
@@ -44,7 +55,7 @@ section.repository-list {
 
     ul {
         list-style: none;
-        margin-top: 5rem;
+        margin-top: 3rem;
 
         li {
 
@@ -66,14 +77,25 @@ section.repository-list {
             }
         }
     }
-}
 
-li.item {
-    margin-bottom: 1rem;
-    text-align: center;
-    background-color: #FFFFFF;
-    width: 20rem;
-    height: 9.375rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    li.item {
+        margin-bottom: 1rem;
+        text-align: center;
+        background-color: #FFFFFF;
+        width: 20rem;
+        height: 9.375rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    h1.textovazio {
+        margin-top: 8rem;
+        text-align: center;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+        font-size: 48px;
+    }
 }

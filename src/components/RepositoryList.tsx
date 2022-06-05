@@ -28,7 +28,7 @@ export function RepositoryList() {
         setNameInput(inputname);
         (document.getElementById('userinput') as HTMLInputElement).value = ''
     }
-    
+
     var settings = {
         dots: true,
         infinite: true,
@@ -39,39 +39,52 @@ export function RepositoryList() {
     const [repositories, setRepositories] = useState<Repository[]>([])
     const [users, setUsers] = useState<Users>({ name: '', blog: '' })
 
-    if(nameInput == '') {
-        setNameInput('hantonny')
-    }
     useEffect(() => {
-        fetch(`https://api.github.com/users/${nameInput}/repos`)
-            .then(response => response.json())
-            .then(data => setRepositories(data))
-
+        if (nameInput) {
+            fetch(`https://api.github.com/users/${nameInput}/repos`)
+                .then(response => response.json())
+                .then(data => setRepositories(data)).catch((error) =>{
+                    console.log('Catch', error);
+                })
+        } else {
+            setRepositories([])
+        }
     }, [nameInput])
 
     useEffect(() => {
-        fetch(`https://api.github.com/users/${nameInput}`)
-            .then(response => response.json())
-            .then(data => setUsers(data))
+        if (nameInput) {
+            fetch(`https://api.github.com/users/${nameInput}`)
+                .then(response => response.json())
+                .then(data => setUsers(data))
+        } else {
+            setUsers({ name: '', blog: '' })
+        }
+
     }, [nameInput])
 
     return (
         <section className="repository-list">
             <img src={Img} />
-            <h1>Lista de Repositórios de <a href={users.blog} target="_blank">{users.name}</a></h1>
-            <input type="text" id='userinput'/>
+            <h1 className="tituloprincipal">Explore repositórios no Github.</h1>
+            <input type="text" id='userinput' placeholder='Coloque seu login' />
             <button type="button" onClick={() => InputName()} className="click">Pesquisar</button>
-            <ul>
-                <Slider {...settings}>
-                    {repositories.map(repository => {
-                        return <RepositoryItem key={repository.name} repository={repository} />
-                    })}
-                </Slider>
+            {
+                !nameInput ? '' :
+                    <>
+                        <h1>Lista de Repositórios de <a href={users.blog} target="_blank">{users.name}</a></h1>
+                        <ul>
+                            <Slider {...settings}>
+                                {repositories.map(repository => {
+                                    return <RepositoryItem key={repository.name} repository={repository} />
+                                })}
+                            </Slider>
 
-            </ul>
-
-
-
+                        </ul>
+                    </>
+            }
+            {
+                nameInput ? '' : <h1 className="textovazio">Nenhum repositórios</h1>
+            }
         </section>
 
     )
